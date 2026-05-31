@@ -1,4 +1,4 @@
-# nethack-agent-boundary
+# Nethack Agent Boundary
 
 A bounded LLM agent runtime using NetHack as an adversarial testbed.
 
