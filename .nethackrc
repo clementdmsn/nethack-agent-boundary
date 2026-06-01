@@ -1,0 +1,729 @@
+# NetHack 5.0.0 nethackrc exhaustive option showcase
+# Source: official NetHack 5.0.0 Guidebook, especially sections 9.2-9.5.
+# Save as ~/.nethackrc, ~/.config/NetHack/NetHack.conf, or your platform's config path.
+# Boolean options can usually be negated with noOPTION or !OPTION.
+# Compound options use OPTION:value.
+# Persistent options generally affect new games; old saves keep the previous value.
+
+#OPTIONS=windowtype:curses
+OPTIONS=windowtype:tty
+
+# -----------------------------------------------------------------------------
+# Character selection
+# -----------------------------------------------------------------------------
+
+# Character name. Can also suffix role, e.g. name:Arch-W for Wizard.
+OPTIONS=name:Arch
+
+# Starting role.
+# Examples: Archeologist, Barbarian, Caveman, Healer, Knight, Monk, Priest,
+# Ranger, Rogue, Samurai, Tourist, Valkyrie, Wizard.
+#OPTIONS=role:Wizard
+
+# Synonym for role.
+#OPTIONS=character:Wizard
+
+# Starting race.
+# Examples: human, dwarf, elf, gnome, orc.
+#OPTIONS=race:human
+
+# Starting gender.
+#OPTIONS=gender:male
+#OPTIONS=gender:female
+
+# Obsolete gender synonyms; shown for completeness.
+#OPTIONS=male
+#OPTIONS=female
+
+# Starting alignment.
+#OPTIONS=align:lawful
+#OPTIONS=alignment:lawful
+
+# Start permanently blind. Challenge option.
+#OPTIONS=blind
+
+# Start permanently deaf. Challenge option.
+#OPTIONS=deaf
+
+# Start with no armor. Challenge option.
+#OPTIONS=nudist
+
+# Start with no possessions. Challenge option.
+#OPTIONS=pauper
+
+# Allow rerolling starting inventory and attributes.
+#OPTIONS=reroll
+
+# Skip tutorial prompt.
+OPTIONS=notutorial
+
+# Play mode: normal, explore, debug.
+OPTIONS=playmode:normal
+
+# -----------------------------------------------------------------------------
+# Pets
+# -----------------------------------------------------------------------------
+
+# Name starting pet.
+OPTIONS=dogname:Doggo
+OPTIONS=catname:Kitty
+OPTIONS=horsename:Horse
+
+# Choose initial pet type when role supports it.
+# Values: cat, dog, horse, none.
+#OPTIONS=pettype:cat
+#OPTIONS=pettype:none
+
+# Prevent accidental attacks and unsafe actions around pets.
+OPTIONS=confirm
+OPTIONS=safe_pet
+
+# Highlight pets on the map.
+OPTIONS=hilite_pet
+
+# Stronger pet highlighting. tty support varies.
+# Values may include none, bold, dim, underline, italic, blink, inverse.
+OPTIONS=petattr:inverse
+
+# -----------------------------------------------------------------------------
+# Status line and information display
+# -----------------------------------------------------------------------------
+
+# Use three status lines where possible; useful with time/showexp/showscore.
+OPTIONS=statuslines:3
+
+# Show elapsed turns.
+OPTIONS=time
+
+# Show accumulated experience points.
+OPTIONS=showexp
+
+# Show approximate score. Requires SCORE_ON_BOTL compiled in.
+OPTIONS=showscore
+
+# Show version on status line.
+OPTIONS=showvers
+
+# Control showvers contents, if supported.
+# OPTIONS=versinfo:version
+
+# Show armor summary status, if supported.
+OPTIONS=armorstatus
+
+# Show wielded weapon summary status, if supported.
+OPTIONS=weaponstatus
+
+# Show terrain-under-feet summary status, if supported.
+OPTIONS=terrainstatus
+
+# Show hit point bar behind name/title, if supported.
+OPTIONS=hitpointbar
+
+# Enable status highlighting for N turns. 0 disables.
+OPTIONS=statushilites:10
+
+# Allow status line updates.
+OPTIONS=status_updates
+
+# -----------------------------------------------------------------------------
+# Messages, prompts, safety
+# -----------------------------------------------------------------------------
+
+# Suppress terminal beeps.
+OPTIONS=silent
+
+# Integrated sound library sounds.
+OPTIONS=nosounds
+
+# Keep this many message-history lines for ^P.
+OPTIONS=msghistory:200
+
+# Recalled message display.
+# Values commonly include: single, combination, full, reversed.
+OPTIONS=msg_window:reversed
+
+# More verbose game commentary.
+OPTIONS=verbose
+
+# Gameplay tips.
+OPTIONS=tips
+
+# Read NetHack news file at startup.
+OPTIONS=news
+
+# Introductory legacy message.
+OPTIONS=nolegacy
+
+# Ask for more information when looking at objects with /.
+OPTIONS=help
+
+# Command assistance for common new-player mistakes.
+OPTIONS=cmdassist
+
+# Add location/direction information to messages, if supported.
+#OPTIONS=accessiblemsg
+
+# Enable in-game hearing messages.
+OPTIONS=acoustics
+
+# Show message when noticing monsters, if supported.
+#OPTIONS=spot_monsters
+
+# Show message when noticing monster movement, if supported.
+#OPTIONS=mon_movement
+
+# Show feedback when interesting map locations change.
+OPTIONS=mention_map
+
+# Show feedback when walking into walls.
+OPTIONS=mention_walls
+
+# Show feedback when walking onto decor: stairs, fountains, altars, etc.
+OPTIONS=mention_decor
+
+# Extra confirmations for dangerous actions.
+# BROKEN: 'eating' is not a valid paranoid_confirmation parameter in your build.
+#OPTIONS=paranoid_confirmation:Confirm quit attack wand-break eating pray swim trap AutoAll Remove
+OPTIONS=paranoid_confirmation:attack swim trap AutoAll 
+
+# Use menus for yes/no queries instead of text prompts.
+OPTIONS=query_menu
+
+# Confirm end-of-game disclosures.
+# Categories: i inventory, a attributes, v vanquished, g genocided,
+# c conduct/achievements, o dungeon overview.
+# Prefixes: y prompt yes default, n prompt no default, + always show, - never show.
+OPTIONS=disclose:yi ya +v +g +c +o
+
+# Sort #vanquished/#genocided.
+# t traditional, d difficulty, a alphabetical, c class, n count high-low, z count low-high.
+OPTIONS=sortvanquished:n
+
+# -----------------------------------------------------------------------------
+# Movement, running, travel
+# -----------------------------------------------------------------------------
+
+# Use vi keys. 0 means yuhjklbn movement. 1 enables numpad movement.
+OPTIONS=number_pad:0
+
+# Let space rest/wait. Risky if you mash space.
+OPTIONS=rest_on_space
+
+# Run/travel animation: teleport, run, walk, crawl.
+# teleport is fastest.
+OPTIONS=runmode:teleport
+
+# Allow mouse-click travel. Does not affect _ travel command.
+#OPTIONS=travel
+
+# Mouse support: 0 off, 1 on with OS adjustment, 2 on without OS adjustment.
+#OPTIONS=mouse_support:0
+
+# Automatically open closed doors by walking into them.
+OPTIONS=autoopen
+
+# Walking into locked doors / looting locked containers.
+# Values may include: untrap, apply-key, kick, force, none.
+OPTIONS=autounlock:apply-key
+
+# Automatically dig when wielding digging tool and moving into diggable terrain.
+OPTIONS=autodig
+
+# Prevent the clairvoyance pause message where possible.
+#OPTIONS=quick_farsight
+
+# -----------------------------------------------------------------------------
+# Map, glyphs, colors
+# -----------------------------------------------------------------------------
+
+# Use color if available.
+OPTIONS=color
+
+# GUI/menu color support where available.
+OPTIONS=guicolor
+
+# Use bold black instead of blue for black glyphs in tty.
+OPTIONS=use_darkgray
+
+# Allow inverse video if interface supports it.
+OPTIONS=use_inverse
+
+# Bold monsters and --More--.
+OPTIONS=standout
+
+# Show lit corridors differently.
+OPTIONS=lit_corridor
+
+# Show unseen parts of lit rooms.
+OPTIONS=dark_room
+
+# Use ASCII map instead of tiles.
+OPTIONS=ascii_map
+
+# Use tiles instead of ASCII if supported.
+#OPTIONS=tiled_map
+
+# Select symbol set. Examples depend on compiled-in symbols.
+#OPTIONS=symset:default
+#OPTIONS=symset:DECgraphics
+#OPTIONS=symset: cursesgraphics
+#OPTIONS=symset:IBMgraphics
+
+# Symbol set for the Rogue level.
+#OPTIONS=roguesymset:default
+
+# Change boulder glyph. 0 is popular because it is visible.
+OPTIONS=boulder:0
+
+# Show yourself as race glyph rather than role glyph.
+#OPTIONS=showrace
+
+# Sparkly visual effect for resisted attacks.
+OPTIONS=sparkle
+
+# Terminal padding nulls.
+OPTIONS=null
+
+# Timer-based delays for effects in tty.
+OPTIONS=timed_delay
+
+# -----------------------------------------------------------------------------
+# Inventory, pickup, loot
+# -----------------------------------------------------------------------------
+
+# Permanent inventory window where supported.
+OPTIONS=perm_invent
+
+# Permanent inventory mode: none, all, full, in-use.
+OPTIONS=perminv_mode:all
+
+# Automatically pick up matching objects.
+OPTIONS=autopickup
+
+# Object classes autopicked.
+# $ gold, " amulets, = rings, / wands, ? scrolls, ! potions, + spellbooks.
+OPTIONS=pickup_types:$"=/?!+
+
+# Ask before picking up above encumbrance threshold.
+# Values: U unencumbered, B burdened, S stressed, N strained, T overtaxed, L overloaded.
+OPTIONS=pickup_burden:B
+
+# Do not autopickup items you dropped.
+OPTIONS=dropped_nopick
+
+# Autopickup things stolen from you.
+OPTIONS=pickup_stolen
+
+# Autopickup things you threw.
+OPTIONS=pickup_thrown
+
+# Sort inventory by object type.
+OPTIONS=sortpack
+
+# Sort loot/inventory menus: full, loot, none.
+OPTIONS=sortloot:full
+
+# Inventory object class order.
+OPTIONS=packorder:")[%?+!=/(*`0_
+
+# Keep inventory letters stable after dropping items.
+OPTIONS=fixinv
+
+# Show inventory item chooser as a menu.
+OPTIONS=force_invmenu
+
+# Wield command pushes previous weapon to alternate slot.
+OPTIONS=pushweapon
+
+# Old container loot shortcuts a/b/c instead of o/i/b.
+#OPTIONS=lootabc
+
+# If firing with no quivered/readied ammo, auto-fill quiver/readied weapon.
+OPTIONS=autoquiver
+
+# If firing without launcher wielded, auto-wield launcher.
+OPTIONS=fireassist
+
+# Pile display threshold. 0 always lists all; 1 never lists individual pile.
+OPTIONS=pile_limit:5
+
+# -----------------------------------------------------------------------------
+# Menus
+# -----------------------------------------------------------------------------
+
+# Extended command menu instead of typing command names.
+OPTIONS=extmenu
+
+# Menu style: traditional, combination, full, partial.
+OPTIONS=menustyle:full
+
+# Enable menu coloring rules.
+OPTIONS=menucolors
+
+# Menu headings attribute or color&attribute, if supported.
+OPTIONS=menu_headings:inverse
+
+# Add object symbols to menus.
+# 0 none, 1 headers, 2 entries, 3 both, 4 conditional, 5 one-or-other.
+OPTIONS=menu_objsyms:conditional
+
+# tty only: draw menus over map, aligned right.
+OPTIONS=menu_overlay
+
+# Menu key customizations.
+# BROKEN: '.' is an object class, so it cannot be used as menu_select_all.
+#OPTIONS=menu_select_all:.
+# Suggested alternative, but left commented to avoid further key conflicts.
+#OPTIONS=menu_select_all:A
+
+# Menu deselect all.
+OPTIONS=menu_deselect_all:-
+
+# Menu invert all.
+OPTIONS=menu_invert_all:@
+
+# BROKEN: ',' was parsed as an empty/missing parameter for menu_select_page.
+#OPTIONS=menu_select_page:,
+# Suggested alternative, but left commented to avoid further key conflicts.
+#OPTIONS=menu_select_page:P
+
+# Menu deselect page.
+#OPTIONS=menu_deselect_page:\
+
+# BROKEN: '~' was interpreted as reserved menu command key '^@'.
+#OPTIONS=menu_invert_page:~
+# Suggested alternative, but left commented to avoid further key conflicts.
+#OPTIONS=menu_invert_page:I
+
+# Menu navigation/search keys.
+OPTIONS=menu_first_page:^
+OPTIONS=menu_last_page:|
+OPTIONS=menu_next_page:>
+OPTIONS=menu_previous_page:<
+OPTIONS=menu_search::
+OPTIONS=menu_shift_left:{
+OPTIONS=menu_shift_right:}
+
+# -----------------------------------------------------------------------------
+# Looking, cursor targeting, discovery lists
+# -----------------------------------------------------------------------------
+#
+# # Automatically describe map terrain under cursor when selecting a location.
+# OPTIONS=autodescribe
+#
+# # Coordinates in look/location descriptions:
+# # c compass, f full compass, m map x,y, s screen row/col, n none.
+# OPTIONS=whatis_coord:f&m
+#
+# # Target cycling filter: n none, v in-view only, a same-area only.
+# OPTIONS=whatis_filter:v
+#
+# # Use menu when cycling targets with look/location commands.
+# #OPTIONS=whatis_menu
+#
+# # Fast-move cursor skips repeated glyphs instead of fixed 8 cells.
+# OPTIONS=whatis_moveskip
+#
+# # Sort discoveries from \ and `:
+# # o discovery order by class, s sortloot classification, c class+alphabetic, a alphabetic.
+# OPTIONS=sortdiscoveries:class
+#
+# # Show price quote ranges for unidentified objects when mentioned.
+# OPTIONS=price_quotes
+#
+# # Omit "uncursed" when it can be deduced.
+# #OPTIONS=implicit_uncursed
+#
+# # Treat gold as unknown BUC state in inventory filters.
+# #OPTIONS=goldX
+
+OPTIONS=autodescribe
+OPTIONS=whatis_coord:f
+OPTIONS=whatis_filter:none
+OPTIONS=whatis_menu
+# OPTIONS=verbose
+# OPTIONS=cmdassist
+# OPTIONS=help
+# OPTIONS=tips
+# OPTIONS=mention_walls
+# OPTIONS=mention_decor
+# OPTIONS=mention_map
+OPTIONS=accessiblemsg
+# OPTIONS=msghistory:500
+# OPTIONS=statuslines:3
+# OPTIONS=terrainstatus
+
+# -----------------------------------------------------------------------------
+# End game, scores, saves
+# -----------------------------------------------------------------------------
+
+# Draw tombstone on death.
+OPTIONS=tombstone
+
+# Ending score display in NetHack window instead of stdout.
+OPTIONS=toptenwin
+
+# Score list formatting.
+# BROKEN: Your build does not accept this combined score syntax.
+#OPTIONS=scores:10 top scores/5 around my score/own scores
+#OPTIONS=scores:10
+
+# Save checkpoint after level change for crash recovery.
+OPTIONS=checkpoint
+
+# Allow bones files.
+OPTIONS=bones
+
+# BROKEN: Unknown option in your NetHack 5.0.0 build.
+#OPTIONS=rlecomp
+
+# BROKEN: Unknown option in your NetHack 5.0.0 build.
+#OPTIONS=zerocomp
+
+# Suppress version-change alert messages up to this version.
+OPTIONS=suppress_alert:5.0.0
+
+# Ignore interrupt signals/breaks. Usually not recommended.
+#OPTIONS=ignintr
+
+# -----------------------------------------------------------------------------
+# Window port options
+# These may be ignored by tty-only builds.
+# -----------------------------------------------------------------------------
+
+# Message/status placement.
+#OPTIONS=align_message:top
+#OPTIONS=align_status:bottom
+
+# Terminal size request, if supported.
+#OPTIONS=term_cols:100
+#OPTIONS=term_rows:30
+
+# Borders:
+# 0 off, 1 on, 2 auto, 3 on except perm_invent, 4 auto except perm_invent.
+OPTIONS=windowborders:2
+
+# Window colors, if supported.
+# Format can vary by port.
+#OPTIONS=windowcolors:message white/black
+#OPTIONS=windowcolors:status white/black
+#OPTIONS=windowcolors:menu white/black
+#OPTIONS=windowcolors:text white/black
+
+# GUI font names and sizes. Usually ignored in tty.
+#OPTIONS=font_map:monospace
+#OPTIONS=font_menu:monospace
+#OPTIONS=font_message:monospace
+#OPTIONS=font_status:monospace
+#OPTIONS=font_text:monospace
+#OPTIONS=font_size_map:14
+#OPTIONS=font_size_menu:14
+#OPTIONS=font_size_message:14
+#OPTIONS=font_size_status:14
+#OPTIONS=font_size_text:14
+
+# GUI fullscreen / large font. Usually ignored in tty.
+#OPTIONS=fullscreen
+#OPTIONS=large_font
+
+# GUI map display mode. Usually ignored in tty.
+#OPTIONS=map_mode:fit_to_screen
+
+# GUI character-selection style. Usually ignored in tty.
+#OPTIONS=player_selection:prompts
+
+# GUI popup dialogs. Usually ignored in tty.
+#OPTIONS=popup_dialog
+
+# Preload tile graphics where supported.
+OPTIONS=preload_tiles
+
+# Scroll map when near edge, if supported.
+#OPTIONS=scroll_margin:5
+#OPTIONS=scroll_amount:5
+
+# Select save game from menu at startup where supported.
+OPTIONS=selectsaved
+
+# Handheld/GUI soft keyboard.
+#OPTIONS=softkeyboard
+
+# Opening splash screen.
+OPTIONS=nosplash_screen
+
+# Alternative tile file and tile size.
+#OPTIONS=tile_file:mytiles.bmp
+#OPTIONS=tile_width:32
+#OPTIONS=tile_height:32
+
+# Number of visible message lines in message window.
+OPTIONS=vary_msgcount:3
+
+# -----------------------------------------------------------------------------
+# Debug/wizard-only options
+# -----------------------------------------------------------------------------
+
+# Prompt when monsters polymorph.
+#OPTIONS=monpolycontrol
+
+# Prompt when monsters teleport.
+#OPTIONS=montelecontrol
+
+# Show object weights in descriptions.
+#OPTIONS=wizweight
+
+# -----------------------------------------------------------------------------
+# Non-OPTIONS directives
+# -----------------------------------------------------------------------------
+
+# Directories. Usually do not set unless packaging or using a custom build.
+#HACKDIR=/usr/local/lib/nethackdir
+#LEVELDIR=/usr/local/lib/nethackdir
+#SAVEDIR=/home/arch/.local/share/nethack/save
+#BONESDIR=/usr/local/lib/nethackdir
+#LOCKDIR=/usr/local/lib/nethackdir
+#TROUBLEDIR=/usr/local/lib/nethackdir
+
+# -----------------------------------------------------------------------------
+# Extended command autocompletion
+# -----------------------------------------------------------------------------
+
+# Prefix command with ! to disable.
+AUTOCOMPLETE=annotate
+AUTOCOMPLETE=chat
+AUTOCOMPLETE=dip
+AUTOCOMPLETE=enhance
+AUTOCOMPLETE=loot
+AUTOCOMPLETE=pray
+AUTOCOMPLETE=ride
+AUTOCOMPLETE=rub
+AUTOCOMPLETE=sit
+AUTOCOMPLETE=turn
+AUTOCOMPLETE=twoweapon
+AUTOCOMPLETE=untrap
+AUTOCOMPLETE=version
+
+# -----------------------------------------------------------------------------
+# Key bindings
+# -----------------------------------------------------------------------------
+
+# Format can vary by command.
+#BIND=O:optionsfull
+#BIND=^X:getpos.autodescribe
+
+# -----------------------------------------------------------------------------
+# Autopickup exceptions
+# -----------------------------------------------------------------------------
+
+# < means always pick up if matched.
+# > means never pick up if matched.
+# BROKEN: The previous regexes used '*thing*', but '*' cannot start a regex term.
+#AUTOPICKUP_EXCEPTION="<*magic lamp*"
+#AUTOPICKUP_EXCEPTION="<*bag of holding*"
+#AUTOPICKUP_EXCEPTION="<*wand of wishing*"
+#AUTOPICKUP_EXCEPTION="<*scroll of identify*"
+#AUTOPICKUP_EXCEPTION="<*scroll of charging*"
+#AUTOPICKUP_EXCEPTION="<*potion of full healing*"
+#AUTOPICKUP_EXCEPTION=">*corpse*"
+#AUTOPICKUP_EXCEPTION=">*loadstone*"
+#AUTOPICKUP_EXCEPTION=">*rock*"
+#AUTOPICKUP_EXCEPTION=">*flint stone*"
+
+# Fixed regex versions.
+AUTOPICKUP_EXCEPTION="<.*magic lamp.*"
+AUTOPICKUP_EXCEPTION="<.*bag of holding.*"
+AUTOPICKUP_EXCEPTION="<.*wand of wishing.*"
+AUTOPICKUP_EXCEPTION="<.*scroll of identify.*"
+AUTOPICKUP_EXCEPTION="<.*scroll of charging.*"
+AUTOPICKUP_EXCEPTION="<.*potion of full healing.*"
+AUTOPICKUP_EXCEPTION=">.*corpse.*"
+AUTOPICKUP_EXCEPTION=">.*loadstone.*"
+AUTOPICKUP_EXCEPTION=">.*rock.*"
+AUTOPICKUP_EXCEPTION=">.*flint stone.*"
+
+# -----------------------------------------------------------------------------
+# Menu colors
+# Requires OPTIONS=menucolors.
+# -----------------------------------------------------------------------------
+
+# Syntax depends on regex/color support in your build.
+MENUCOLOR=" blessed "=green
+MENUCOLOR=" holy "=green
+MENUCOLOR=" cursed "=red
+MENUCOLOR=" unholy "=red
+MENUCOLOR=" cursed .* bag "=red
+MENUCOLOR=" wand of wishing "=magenta
+MENUCOLOR=" magic lamp "=magenta
+MENUCOLOR=" bag of holding "=cyan
+MENUCOLOR=" scroll of identify "=cyan
+MENUCOLOR=" scroll of charging "=cyan
+MENUCOLOR=" potion of full healing "=cyan
+MENUCOLOR=" amulet of life saving "=magenta
+
+# -----------------------------------------------------------------------------
+# Message handling
+# Use cautiously; hiding important messages can kill runs.
+# -----------------------------------------------------------------------------
+
+# Common actions include hide, stop, norep, alert.
+#MSGTYPE=hide "You displaced *"
+#MSGTYPE=norep "You hear some noises*"
+MSGTYPE=stop "You feel hungry."
+MSGTYPE=stop "You are beginning to feel hungry."
+MSGTYPE=stop "You faint from lack of food."
+
+# -----------------------------------------------------------------------------
+# Status highlighting
+# Requires status hilites support. Syntax may vary by build/interface.
+# -----------------------------------------------------------------------------
+
+# STATUSHILITES=hitpoints/100%/grey
+# STATUSHILITES=hitpoints/<50%/yellow
+# STATUSHILITES=hitpoints/<25%/orange
+# STATUSHILITES=hitpoints/<10%/red&inverse
+# STATUSHILITES=power/<25%/yellow
+# STATUSHILITES=condition/food/green
+# STATUSHILITES=condition/hungry/yellow
+# STATUSHILITES=condition/weak/orange
+# STATUSHILITES=condition/fainting/red&inverse
+# STATUSHILITES=condition/burdened/yellow
+# STATUSHILITES=condition/stressed/orange
+# STATUSHILITES=condition/strained/red
+# STATUSHILITES=condition/overtaxed/red&inverse
+# STATUSHILITES=condition/overloaded/red&inverse
+# Enables status hilites for changed fields for 10 turns
+OPTIONS=statushilites:10
+
+# Actual hilite rules
+OPTION=hilite_status: hitpoints/<100%/green&normal
+OPTION=hilite_status: hitpoints/<66%/yellow&normal
+OPTION=hilite_status: hitpoints/<50%/orange&normal
+OPTION=hilite_status: hitpoints/<33%/red&bold
+OPTION=hilite_status: hitpoints/<15%/red&inverse
+OPTION=hilite_status: condition/major/orange&inverse
+OPTION=hilite_status: condition/lev+fly/red&inverse
+
+# -----------------------------------------------------------------------------
+# Symbol overrides
+# Use sparingly; symset is usually cleaner.
+# -----------------------------------------------------------------------------
+
+#SYMBOLS=S_boulder:0
+
+# -----------------------------------------------------------------------------
+# Random config sections
+# CHOOSE selects one section name; only that section is active.
+# -----------------------------------------------------------------------------
+
+#CHOOSE=fast,quiet
+
+#[fast]
+#OPTIONS=runmode:teleport
+
+#[quiet]
+#OPTIONS=nomention_walls
+
+#[]
+
+
+MSGTYPE=hide "You swap places with *"

@@ -1,0 +1,1093 @@
+{
+  "decision_input": {
+    "request_kind": "auto",
+    "current_action_id": null,
+    "procedure_status": "idle",
+    "payload": {
+      "system_context": {
+        "game": "NetHack visible-room tactical control",
+        "decision_contract": "Prefer continue_current_action when still safe and useful; otherwise switch to one available action id."
+      },
+      "high_level_goals": [
+        "Explore the current dungeon level methodically.",
+        "Survive immediate threats while exploring.",
+        "Use room exits, doors, corridors, and frontiers to reveal new areas."
+      ],
+      "medium_level_goals": [
+        "Avoid staying adjacent to a hostile when a safe move exists.",
+        "When no hostile pressure exists, choose the nearest exploration action first; prefer corridor traversal, frontiers, exits, and doors that reveal new map over incidental movement.",
+        "Corridor traversal is runtime-managed; after choosing a corridor, reassess when the stop event reports an end, intersection, blockage, or hostile.",
+        "Use visible paths to exits, doors, corridors, items, and frontiers instead of inventing routes.",
+        "Interrupt the current action when the scene becomes unsafe."
+      ],
+      "scene_state": {
+        "identity": "priest called agent_d74c5656",
+        "pet": [
+          {
+            "description": "tame kitten called Kitty",
+            "relationship": "ally",
+            "pos": [
+              5,
+              0
+            ]
+          }
+        ],
+        "room_description": "Visible area.",
+        "visibility": "normal",
+        "location_context": {
+          "area_type": "corridor",
+          "in_corridor": true,
+          "in_room": false,
+          "dark": false,
+          "adjacent_corridors": [
+            "north",
+            "west",
+            "east",
+            "northeast"
+          ],
+          "adjacent_doors": [],
+          "in_front_of_door": false
+        },
+        "player": {
+          "identity": "priest called agent_d74c5656",
+          "pos": [
+            0,
+            0
+          ]
+        },
+        "tabletop": [
+          {
+            "ref": "tame_kitten_called_kitty_24",
+            "kind": "entity",
+            "description": "tame kitten called Kitty",
+            "pos": [
+              5,
+              0
+            ],
+            "distance_steps": 5,
+            "direction_sequence": [
+              "east",
+              "east",
+              "east",
+              "east",
+              "east"
+            ],
+            "summary": "tame kitten called Kitty is 5 steps away via east, east, east, east, east"
+          },
+          {
+            "ref": "a_statue_of_a_lichen_17",
+            "kind": "item",
+            "description": "a statue of a lichen",
+            "pos": [
+              9,
+              0
+            ],
+            "distance_steps": 9,
+            "direction_sequence": [
+              "east",
+              "east",
+              "east",
+              "east",
+              "east",
+              "east",
+              "east",
+              "east",
+              "east"
+            ],
+            "summary": "a statue of a lichen is 9 steps away via east, east, east, east, east, east, east, east, east"
+          },
+          {
+            "ref": "a_scroll_labeled_lep_gex_ven_zea_8",
+            "kind": "item",
+            "description": "a scroll labeled LEP GEX VEN ZEA",
+            "pos": [
+              7,
+              0
+            ],
+            "distance_steps": 7,
+            "direction_sequence": [
+              "east",
+              "east",
+              "east",
+              "east",
+              "east",
+              "east",
+              "east"
+            ],
+            "summary": "a scroll labeled LEP GEX VEN ZEA is 7 steps away via east, east, east, east, east, east, east"
+          },
+          {
+            "ref": "open_door_8",
+            "kind": "feature",
+            "description": "open door",
+            "pos": [
+              8,
+              -2
+            ],
+            "distance_steps": 8,
+            "direction_sequence": [
+              "northeast",
+              "northeast",
+              "east",
+              "east",
+              "east",
+              "east",
+              "east",
+              "east"
+            ],
+            "summary": "open door is 8 steps away via northeast, northeast, east, east, east, east, east, east"
+          }
+        ],
+        "scene_summary": "Visible area. Visible facts: tame kitten called Kitty is 5 steps away via east, east, east, east, east; a statue of a lichen is 9 steps away via east, east, east, east, east, east, east, east, east; a scroll labeled LEP GEX VEN ZEA is 7 steps away via east, east, east, east, east, east, east.",
+        "previous_scene_summary": "Visible area. Visible facts: tame kitten called Kitty is 5 steps away via east, east, east, east, east; a statue of a lichen is 9 steps away via east, east, east, east, east, east, east, east, east; a scroll labeled LEP GEX VEN ZEA is 7 steps away via east, east, east, east, east, east, east.",
+        "raw_scene": {
+          "exits": [],
+          "items": [
+            {
+              "description": "a statue of a lichen",
+              "pos": [
+                9,
+                0
+              ],
+              "ref": "a_statue_of_a_lichen_17",
+              "target_key": "item:a_statue_of_a_lichen",
+              "display_name": "a statue of a lichen"
+            },
+            {
+              "description": "a scroll labeled LEP GEX VEN ZEA",
+              "pos": [
+                7,
+                0
+              ],
+              "ref": "a_scroll_labeled_lep_gex_ven_zea_8",
+              "target_key": "item:a_scroll_labeled_lep_gex_ven_zea",
+              "display_name": "a scroll labeled LEP GEX VEN ZEA"
+            }
+          ],
+          "entities": [
+            {
+              "description": "tame kitten called Kitty",
+              "pos": [
+                5,
+                0
+              ],
+              "ref": "tame_kitten_called_kitty_24",
+              "target_key": "ally:tame_kitten_called_kitty",
+              "display_name": "tame kitten called Kitty"
+            }
+          ],
+          "features": [
+            {
+              "description": "open door",
+              "pos": [
+                8,
+                -2
+              ],
+              "ref": "open_door_8",
+              "target_key": "door:northeast",
+              "display_name": "door"
+            }
+          ],
+          "areas": []
+        }
+      },
+      "scene_events": [],
+      "non_pet_scene_changed": false,
+      "ongoing_hazards": [],
+      "recent_low_level_actions": [
+        "move(west)",
+        "move(west)",
+        "move(west)",
+        "move(west)",
+        "move(west)"
+      ],
+      "available_actions": [
+        {
+          "action_id": "explore_corridor:west",
+          "action_type": "explore_corridor",
+          "label": "Follow corridor west",
+          "target_ref": null,
+          "target_key": "corridor:west",
+          "procedure_kind": "dynamic",
+          "low_level_goal": "follow the corridor west",
+          "next_action": "follow_corridor(west)",
+          "path_steps": [
+            "west"
+          ],
+          "distance_steps": 1,
+          "interruptible": true,
+          "exploration_priority": 0,
+          "continues_recent_direction": true,
+          "preferred_exploration": true,
+          "selection_priority": "nearest_exploration"
+        },
+        {
+          "action_id": "explore_corridor:north",
+          "action_type": "explore_corridor",
+          "label": "Follow corridor north",
+          "target_ref": null,
+          "target_key": "corridor:north",
+          "procedure_kind": "dynamic",
+          "low_level_goal": "follow the corridor north",
+          "next_action": "follow_corridor(north)",
+          "path_steps": [
+            "north"
+          ],
+          "distance_steps": 1,
+          "interruptible": true
+        },
+        {
+          "action_id": "explore_corridor:northeast",
+          "action_type": "explore_corridor",
+          "label": "Follow corridor northeast",
+          "target_ref": null,
+          "target_key": "corridor:northeast",
+          "procedure_kind": "dynamic",
+          "low_level_goal": "follow the corridor northeast",
+          "next_action": "follow_corridor(northeast)",
+          "path_steps": [
+            "northeast"
+          ],
+          "distance_steps": 1,
+          "interruptible": true
+        }
+      ],
+      "current_procedure": null,
+      "decision_request": {
+        "mode": "choose_action",
+        "instruction": "Return JSON with decision=switch, chosen_action_id, and reason. There is no active procedure to continue.",
+        "allowed_decisions": [
+          "continue",
+          "switch"
+        ],
+        "current_action_id": null
+      },
+      "user_question": "Choose the best current high-level action."
+    },
+    "model_payload": {
+      "goals": [
+        "Explore the current dungeon level methodically.",
+        "Survive immediate threats while exploring.",
+        "Use room exits, doors, corridors, and frontiers to reveal new areas."
+      ],
+      "priorities": [
+        "Avoid staying adjacent to a hostile when a safe move exists.",
+        "When no hostile pressure exists, choose the nearest exploration action first; prefer corridor traversal, frontiers, exits, and doors that reveal new map over incidental movement.",
+        "Corridor traversal is runtime-managed; after choosing a corridor, reassess when the stop event reports an end, intersection, blockage, or hostile.",
+        "Use visible paths to exits, doors, corridors, items, and frontiers instead of inventing routes.",
+        "Interrupt the current action when the scene becomes unsafe."
+      ],
+      "scene": {
+        "identity": "priest called agent_d74c5656",
+        "room_description": "Visible area.",
+        "visibility": "normal",
+        "location_context": {
+          "area_type": "corridor",
+          "in_corridor": true,
+          "in_room": false,
+          "dark": false,
+          "adjacent_corridors": [
+            "north",
+            "west",
+            "east",
+            "northeast"
+          ],
+          "adjacent_doors": [],
+          "in_front_of_door": false
+        },
+        "player": {
+          "identity": "priest called agent_d74c5656",
+          "pos": [
+            0,
+            0
+          ]
+        },
+        "pet": [
+          {
+            "description": "tame kitten called Kitty",
+            "relationship": "ally",
+            "pos": [
+              5,
+              0
+            ]
+          }
+        ],
+        "visible": [
+          {
+            "id": "ally:tame_kitten_called_kitty",
+            "kind": "entity",
+            "label": "tame kitten called Kitty",
+            "steps": 5,
+            "path": [
+              "east",
+              "east",
+              "east",
+              "east",
+              "east"
+            ]
+          }
+        ],
+        "procedural_memory": {
+          "blocked_by_ally": [
+            [
+              -1,
+              0
+            ]
+          ]
+        }
+      },
+      "events": [],
+      "non_pet_scene_changed": false,
+      "hazards": [],
+      "recent_actions": [
+        "move(west)",
+        "move(west)",
+        "move(west)",
+        "move(west)",
+        "move(west)"
+      ],
+      "current_procedure": null,
+      "available_actions": [
+        {
+          "id": "explore_corridor:west",
+          "label": "Follow corridor west",
+          "type": "explore_corridor",
+          "goal": "follow the corridor west",
+          "priority": "nearest_exploration",
+          "steps": 1
+        },
+        {
+          "id": "explore_corridor:north",
+          "label": "Follow corridor north",
+          "type": "explore_corridor",
+          "goal": "follow the corridor north",
+          "steps": 1
+        },
+        {
+          "id": "explore_corridor:northeast",
+          "label": "Follow corridor northeast",
+          "type": "explore_corridor",
+          "goal": "follow the corridor northeast",
+          "steps": 1
+        }
+      ],
+      "decision": {
+        "mode": "choose_action",
+        "allowed": [
+          "continue",
+          "switch"
+        ],
+        "current_action_id": null,
+        "response_contract": "No active procedure exists; switch by returning JSON with chosen_action_id.",
+        "rule": "Use continue only when current_procedure is active; otherwise switch to an available action id."
+      }
+    },
+    "current_procedure": null,
+    "scene_events": [],
+    "first_screen_scene": {
+      "room_description": "Visible area.",
+      "visibility": "normal",
+      "observations": [
+        {
+          "description": "tame kitten called Kitty",
+          "glyph": "f",
+          "pos": [
+            5,
+            0
+          ]
+        },
+        {
+          "description": "a statue of a lichen",
+          "glyph": "F",
+          "pos": [
+            9,
+            0
+          ]
+        },
+        {
+          "description": "lit corridor",
+          "glyph": "#",
+          "pos": [
+            0,
+            -1
+          ]
+        },
+        {
+          "description": "lit corridor",
+          "glyph": "#",
+          "pos": [
+            -1,
+            0
+          ]
+        },
+        {
+          "description": "lit corridor",
+          "glyph": "#",
+          "pos": [
+            1,
+            0
+          ]
+        },
+        {
+          "description": "lit corridor",
+          "glyph": "#",
+          "pos": [
+            1,
+            -1
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            2,
+            0
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            2,
+            -1
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            3,
+            0
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            3,
+            -1
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            4,
+            0
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            2,
+            -4
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            3,
+            -3
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            4,
+            -2
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            5,
+            -1
+          ]
+        },
+        {
+          "description": "branch staircase up",
+          "glyph": "<",
+          "pos": [
+            -1,
+            -6
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            3,
+            -4
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            4,
+            -3
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            5,
+            -2
+          ]
+        },
+        {
+          "description": "a scroll labeled LEP GEX VEN ZEA",
+          "glyph": "?",
+          "pos": [
+            7,
+            0
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            4,
+            -4
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            5,
+            -3
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            6,
+            -3
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            7,
+            -3
+          ]
+        },
+        {
+          "description": "open door",
+          "glyph": "|",
+          "pos": [
+            8,
+            -2
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            8,
+            -3
+          ]
+        }
+      ],
+      "features": [
+        {
+          "description": "branch staircase up",
+          "pos": [
+            -1,
+            -6
+          ]
+        },
+        {
+          "description": "open door",
+          "pos": [
+            8,
+            -2
+          ]
+        }
+      ],
+      "items": [
+        {
+          "description": "a statue of a lichen",
+          "pos": [
+            9,
+            0
+          ]
+        },
+        {
+          "description": "a scroll labeled LEP GEX VEN ZEA",
+          "pos": [
+            7,
+            0
+          ]
+        }
+      ],
+      "areas": [],
+      "entities": [
+        {
+          "description": "tame kitten called Kitty",
+          "pos": [
+            5,
+            0
+          ]
+        }
+      ],
+      "exits": [],
+      "player": {
+        "identity": "priest called agent_d74c5656",
+        "pos": [
+          0,
+          0
+        ]
+      },
+      "location_context": {
+        "area_type": "corridor",
+        "in_corridor": true,
+        "in_room": false,
+        "dark": false,
+        "adjacent_corridors": [
+          "north",
+          "west",
+          "east",
+          "northeast"
+        ],
+        "adjacent_doors": [],
+        "in_front_of_door": false
+      }
+    },
+    "scene_before_action": {
+      "room_description": "Visible area.",
+      "visibility": "normal",
+      "location_context": {
+        "area_type": "corridor",
+        "in_corridor": true,
+        "in_room": false,
+        "dark": false,
+        "adjacent_corridors": [
+          "north",
+          "west",
+          "east",
+          "northeast"
+        ],
+        "adjacent_doors": [],
+        "in_front_of_door": false
+      },
+      "player": {
+        "identity": "priest called agent_d74c5656",
+        "pos": [
+          0,
+          0
+        ]
+      },
+      "exits": [],
+      "items": [
+        {
+          "description": "a statue of a lichen",
+          "pos": [
+            9,
+            0
+          ],
+          "ref": "a_statue_of_a_lichen_17",
+          "target_key": "item:a_statue_of_a_lichen",
+          "display_name": "a statue of a lichen"
+        },
+        {
+          "description": "a scroll labeled LEP GEX VEN ZEA",
+          "pos": [
+            7,
+            0
+          ],
+          "ref": "a_scroll_labeled_lep_gex_ven_zea_8",
+          "target_key": "item:a_scroll_labeled_lep_gex_ven_zea",
+          "display_name": "a scroll labeled LEP GEX VEN ZEA"
+        }
+      ],
+      "entities": [
+        {
+          "description": "tame kitten called Kitty",
+          "pos": [
+            5,
+            0
+          ],
+          "ref": "tame_kitten_called_kitty_24",
+          "target_key": "ally:tame_kitten_called_kitty",
+          "display_name": "tame kitten called Kitty"
+        }
+      ],
+      "features": [
+        {
+          "description": "open door",
+          "pos": [
+            8,
+            -2
+          ],
+          "ref": "open_door_8",
+          "target_key": "door:northeast",
+          "display_name": "door"
+        }
+      ],
+      "areas": []
+    }
+  },
+  "decision_result": {
+    "request_kind": "auto",
+    "current_action_id": null,
+    "procedure_status": "blocked",
+    "raw_model_response": "{\n  \"decision\": \"switch\",\n  \"chosen_action_id\": \"explore_corridor:west\",\n  \"reason\": \"The player is currently in a corridor with adjacent west direction, and following the west corridor aligns with nearest exploration priority while ensuring safe movement. No hostile threats are present, and this action directly supports the goal of methodically exploring new areas.\"\n}",
+    "parsed_decision": {
+      "decision": "switch",
+      "chosen_action_id": "explore_corridor:west",
+      "reason": "The player is currently in a corridor with adjacent west direction, and following the west corridor aligns with nearest exploration priority while ensuring safe movement. No hostile threats are present, and this action directly supports the goal of methodically exploring new areas."
+    },
+    "selected_action": {
+      "action_id": "explore_corridor:west",
+      "action_type": "explore_corridor",
+      "label": "Follow corridor west",
+      "target_ref": null,
+      "target_key": "corridor:west",
+      "procedure_kind": "dynamic",
+      "low_level_goal": "follow the corridor west",
+      "next_action": "follow_corridor(west)",
+      "path_steps": [
+        "west"
+      ],
+      "distance_steps": 1,
+      "interruptible": true,
+      "exploration_priority": 0,
+      "continues_recent_direction": true,
+      "preferred_exploration": true,
+      "selection_priority": "nearest_exploration"
+    },
+    "model_skipped": false,
+    "executed_low_level_action": "move(southwest)",
+    "execution_outcome": {
+      "status": "corridor_follow_intersection",
+      "scene_changed": true,
+      "steps": 3
+    },
+    "current_procedure": {
+      "action_id": "explore_corridor:west",
+      "status": "blocked",
+      "next_action": null,
+      "low_level_goal": null
+    },
+    "scene_events_after_action": [],
+    "scene_after_action": {
+      "room_description": "Visible area.",
+      "visibility": "normal",
+      "observations": [
+        {
+          "description": "a statue of a lichen",
+          "glyph": "F",
+          "pos": [
+            12,
+            -1
+          ]
+        },
+        {
+          "description": "lit corridor",
+          "glyph": "#",
+          "pos": [
+            1,
+            0
+          ]
+        },
+        {
+          "description": "lit corridor",
+          "glyph": "#",
+          "pos": [
+            0,
+            1
+          ]
+        },
+        {
+          "description": "lit corridor",
+          "glyph": "#",
+          "pos": [
+            1,
+            -1
+          ]
+        },
+        {
+          "description": "lit corridor",
+          "glyph": "#",
+          "pos": [
+            -1,
+            1
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            2,
+            -1
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            3,
+            -1
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            3,
+            -2
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            4,
+            -1
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            4,
+            -2
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            5,
+            -1
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            5,
+            -2
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            6,
+            -1
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            6,
+            -2
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            7,
+            -1
+          ]
+        },
+        {
+          "description": "branch staircase up",
+          "glyph": "<",
+          "pos": [
+            2,
+            -7
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            8,
+            -1
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            5,
+            -5
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            6,
+            -4
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            7,
+            -3
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            8,
+            -2
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            6,
+            -5
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            7,
+            -4
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            8,
+            -3
+          ]
+        },
+        {
+          "description": "a scroll labeled LEP GEX VEN ZEA",
+          "glyph": "?",
+          "pos": [
+            10,
+            -1
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            7,
+            -5
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            8,
+            -4
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            9,
+            -4
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            10,
+            -4
+          ]
+        },
+        {
+          "description": "open door",
+          "glyph": "|",
+          "pos": [
+            11,
+            -3
+          ]
+        },
+        {
+          "description": "corridor",
+          "glyph": "#",
+          "pos": [
+            11,
+            -4
+          ]
+        }
+      ],
+      "features": [
+        {
+          "description": "branch staircase up",
+          "pos": [
+            2,
+            -7
+          ]
+        },
+        {
+          "description": "open door",
+          "pos": [
+            11,
+            -3
+          ]
+        }
+      ],
+      "items": [
+        {
+          "description": "a statue of a lichen",
+          "pos": [
+            12,
+            -1
+          ]
+        },
+        {
+          "description": "a scroll labeled LEP GEX VEN ZEA",
+          "pos": [
+            10,
+            -1
+          ]
+        }
+      ],
+      "areas": [],
+      "entities": [],
+      "exits": [],
+      "player": {
+        "identity": "priest called agent_d74c5656",
+        "pos": [
+          0,
+          0
+        ]
+      },
+      "location_context": {
+        "area_type": "corridor",
+        "in_corridor": true,
+        "in_room": false,
+        "dark": false,
+        "adjacent_corridors": [
+          "south",
+          "east",
+          "northeast",
+          "southwest"
+        ],
+        "adjacent_doors": [],
+        "in_front_of_door": false
+      }
+    }
+  }
+}
